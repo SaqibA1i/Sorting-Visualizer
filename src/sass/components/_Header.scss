@@ -1,0 +1,24 @@
+.header-main {
+    background-color: $main-accent;
+    background-image: $main-gradient;
+    color: $black;
+    padding: 10px;
+    @include flex-center();
+    .header-select {
+        border: 0;
+        background-color: rgba(0, 0, 0, 0.144);
+        border-radius: 10px;
+        color: white;
+        .react-dropdown-select-item {
+            color: $black;
+        }
+        ::placeholder {
+            color: white;
+        }
+    }
+    .header-brand {
+        @include flex-center();
+        width: 150px;
+        font-size: large;
+    }
+}
