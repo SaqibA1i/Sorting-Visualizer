@@ -1,9 +1,10 @@
 .header-main {
-    background-color: $main-accent;
     background-image: $main-gradient;
     color: $black;
     padding: 10px;
+    width: 100%;
     @include flex-center();
+    justify-content: space-evenly;
     .header-select {
         border: 0;
         background-color: rgba(0, 0, 0, 0.144);
@@ -20,5 +21,24 @@
         @include flex-center();
         width: 150px;
         font-size: large;
+    }
+}
+.header-footer {
+    height: auto;
+    padding: 10px;
+    width: 100%;
+    color: white;
+    background: $main-accent-dark;
+    .options {
+        margin: 0 auto;
+        width: 500px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        svg {
+            padding: 0 10px;
+            padding-right: 20px;
+        }
     }
 }

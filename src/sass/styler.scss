@@ -1,3 +1,7 @@
 @import "./utilities/variables";
 @import "./utilities/util";
 @import "./components/Header";
+@import "./components/Body";
+html {
+    min-width: fit-content;
+}

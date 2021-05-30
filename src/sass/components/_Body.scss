@@ -1,0 +1,17 @@
+.array-box {
+    width: 90%;
+    max-width: 90%;
+    height: 300px;
+    display: flex;
+    flex-wrap: no-wrap;
+    flex-direction: row;
+    margin: 0 auto;
+    align-items: baseline;
+    .array-entry {
+        width: 6px;
+        background: $main-gradient;
+        border-radius: 8px 8px 0 0;
+        margin: 1px;
+        transition: height 50ms, width 500ms, color 100ms;
+    }
+}
