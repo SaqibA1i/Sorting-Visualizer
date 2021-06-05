@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import { Sort, useAlg } from "../../Context/SortingContext";
 import Slider, { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
-import { option, options } from "./options";
-
+import { options } from "./options";
+import { option } from "../../types";
 import Select from "react-dropdown-select";
-
+import { algorithms } from "../../sorting-algorithms/algorithms";
 type Props = {
 
 }
@@ -42,8 +42,12 @@ const Header: React.FC<Props> = () => {
             dropdownHeight: "300px"
         }
     );
-    const { algorithm, setAlgo, setBars, bars } = useAlg();
-
+    const { algorithm, setAlgo, setBars, bars, arrayBars, inProg, setProg } = useAlg();
+    const sort = async () => {
+        setProg(true);
+        await algorithms(algorithm, arrayBars);
+        setProg(false);
+    }
     return (
         <>
             <nav className="header-main">
@@ -57,7 +61,6 @@ const Header: React.FC<Props> = () => {
                     placeholder="Select Algorithm"
                     addPlaceholder={selectProps.addPlaceholder}
                     color={selectProps.color}
-                    disabled={selectProps.disabled}
                     loading={selectProps.loading}
                     searchBy={selectProps.searchBy}
                     separator={selectProps.separator}
@@ -77,17 +80,31 @@ const Header: React.FC<Props> = () => {
                     onDropdownClose={() => undefined}
                     onClearAll={() => undefined}
                     onSelectAll={() => undefined}
+                    disabled={inProg}
                     onChange={(value: option[]) => { setAlgo(value[0]["algorithm"]); console.log(algorithm) }}
                 />
             </nav>
             <nav className="header-footer">
                 <div className="options">
-                    <PlayCircle size="30" color="green" />
-                    <StopCircle size="30" color="red" />
+                    <button
+                        disabled={inProg}
+                        className={!inProg ? "start" : "disabled"}
+                        onClick={() => { sort() }}
+                    >
+                        Start
+                    </button>
+                    <button
+                        disabled={!inProg}
+                        className={inProg ? "stop" : "disabled"}
+                        onClick={() => { window.location.href = "/" }}
+                    >
+                        Stop
+                    </button>
                     <Slider
                         min={20}
                         max={100}
                         onChange={(value: number) => { setBars(value) }}
+                        disabled={inProg}
                     />
                 </div>
             </nav>

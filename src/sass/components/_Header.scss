@@ -36,9 +36,33 @@
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
-        svg {
-            padding: 0 10px;
-            padding-right: 20px;
+        button {
+            border-radius: 10px;
+            border: 0;
+            color: white;
+            padding: 5px 20px;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+        .start {
+            background-color: rgb(67, 148, 67);
+            transition: 200ms background-color;
+            &:hover {
+                background-color: rgb(67, 148, 67) - 50;
+            }
+        }
+        .stop {
+            background-color: rgb(216, 49, 49);
+            transition: 200ms background-color;
+            &:hover {
+                background-color: rgb(216, 49, 49) - 50;
+            }
+        }
+        .disabled {
+            background-color: rgba(0, 0, 0, 0.212);
+            color: #333;
+            transition: 200ms background-color;
+            cursor: not-allowed;
         }
     }
 }

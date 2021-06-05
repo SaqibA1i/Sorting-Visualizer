@@ -1,7 +1,4 @@
-export type option = {
-  id: number;
-  algorithm: string;
-}
+import { option } from "../../types";
 
 export const options: option[] = [
   {

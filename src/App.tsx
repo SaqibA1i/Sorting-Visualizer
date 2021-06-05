@@ -4,10 +4,15 @@ import Header from "./components/Header/Header";
 import Body from "./components/body/body";
 import { SortingContext } from "./Context/SortingContext";
 import "./sass/styler.scss";
+import { setFlagsFromString } from 'v8';
+import { Bars } from "./types";
+import { options } from "./components/Header/options";
 
 function App() {
-  const [currAlgo, setAlgo] = useState("Please Select hm");
+  const [currAlgo, setAlgo] = useState<string>(options[0]["algorithm"]);
   const [bars, setBars] = useState(50);
+  const [newarr, setArr] = useState<Bars[]>([]);
+  const [prog, setProg] = useState<boolean>(false);
 
   return (
     <div className="App">
@@ -16,7 +21,10 @@ function App() {
         setAlgo: setAlgo,
         bars: bars,
         setBars: setBars,
-        inProg: false
+        arrayBars: newarr,
+        setArr: setArr,
+        inProg: prog,
+        setProg: setProg
       }}>
         <Header />
         <Body />

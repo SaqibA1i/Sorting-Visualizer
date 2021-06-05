@@ -1,17 +1,13 @@
-
-
 import { Sort, useAlg } from "../../Context/SortingContext";
 import { useEffect, useState } from "react";
+import { Bars } from "../../types";
 
 type Props = {
 
 }
-type Bars = {
-    height: number;
-}
+
 const Body: React.FC<Props> = () => {
-    const [newarr, setArr] = useState<Bars[]>([]);
-    const { algorithm, setAlgo, bars } = useAlg();
+    const { algorithm, setAlgo, bars, arrayBars, setArr } = useAlg();
 
     useEffect(() => {
         let randArr: Bars[] = [];
@@ -23,16 +19,17 @@ const Body: React.FC<Props> = () => {
     }, [bars])
     return (
         <>
-            <h1>
+            <h1 className="body-heading">
                 {algorithm}
             </h1>
             <div id="box" className="array-box">
                 {
-                    newarr.map((entry) => {
+                    arrayBars.map((entry, id) => {
                         return (
-                            <div style={{ height: entry.height + 'px', width: "-webkit-fill-available" }} className="array-entry">
-
-                            </div>
+                            <>
+                                <div id={"bar" + id} style={{ height: entry.height + 'px', width: "-webkit-fill-available" }} className="array-entry">
+                                </div>
+                            </>
                         )
                     })
                 }
