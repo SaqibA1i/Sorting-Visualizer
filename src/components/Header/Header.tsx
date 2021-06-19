@@ -121,7 +121,7 @@ const Header: React.FC<Props> = () => {
           <p className={"slider"}>
             Bar numbers: {bars}
             <Slider
-              min={20}
+              min={5}
               max={100}
               step={11}
               defaultValue={bars}
