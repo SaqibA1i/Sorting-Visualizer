@@ -1,30 +1,49 @@
 .body-heading {
-    color: $black;
+  color: $black;
 }
 .array-box {
-    width: 90%;
-    max-width: 90%;
-    height: 300px;
-    display: flex;
-    flex-wrap: no-wrap;
-    flex-direction: row;
-    margin: 0 auto;
-    align-items: baseline;
-    .array-entry {
-        width: 6px;
-        background: $main-gradient;
-        border-radius: 8px 8px 0 0;
-        margin: 1px;
-        transition: height 5ms, width 500ms, background 50ms;
+  width: 90%;
+  max-width: 90%;
+  height: 300px;
+  display: flex;
+  flex-wrap: no-wrap;
+  flex-direction: row;
+  margin: 0 auto;
+  align-items: baseline;
+  .array-entry {
+    width: 6px;
+    background: $main-gradient;
+    border-radius: 8px 8px 0 0;
+    margin: 1px;
+    transition: height 5ms, width 500ms, background 100ms;
+    .array-digit {
+      font-size: 1vw;
+      padding-top: 20px;
+      margin: 0 auto;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #333;
+      transition: color 50ms;
     }
-    .being-swapped {
-        background: $swap-accent;
-        transition: height 5ms, background 50ms;
+  }
+  .being-swapped {
+    background: $swap-accent;
+    transition: height 5ms, background 100ms;
+    .array-digit {
+      color: rgb(255, 255, 255);
+      transition: color 50ms;
+      background-color: rgba(51, 51, 51, 0.568);
     }
-    .being-compared {
-        background: rgb(0, 51, 128);
+  }
+  .being-compared {
+    background: rgb(0, 51, 128);
+    transition: height 5ms, background 100ms;
+    .array-digit {
+      color: rgb(255, 255, 255);
+      transition: color 50ms;
+      background-color: rgba(51, 51, 51, 0.568);
     }
-    .error {
-        background: rgb(128, 19, 0);
-    }
+  }
+  .error {
+    background: rgb(128, 19, 0);
+  }
 }

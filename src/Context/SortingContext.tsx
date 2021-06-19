@@ -10,6 +10,8 @@ export type Sort = {
     setArr: React.Dispatch<React.SetStateAction<Bars[]>>;
     inProg: boolean;
     setProg: React.Dispatch<React.SetStateAction<boolean>>;
+    sortSpeed: number;
+    setSortSpeed:  React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const SortingContext = React.createContext<Sort>({
@@ -20,7 +22,9 @@ export const SortingContext = React.createContext<Sort>({
     arrayBars: [],
     setArr: useState,
     inProg: false,
-    setProg: useState
+    setProg: useState,
+    sortSpeed:100,
+    setSortSpeed: useState,
 });
 
 export const useAlg = () => React.useContext(SortingContext);

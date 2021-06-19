@@ -29,9 +29,12 @@
     width: 100%;
     color: white;
     background: $main-accent-dark;
+    .slider{
+        margin: 0 10px;
+    }
     .options {
         margin: 0 auto;
-        width: 500px;
+        width: 600px;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
