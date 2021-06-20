@@ -4,18 +4,16 @@
 .array-box {
   width: 90%;
   max-width: 90%;
-  height: 300px;
   display: flex;
   flex-wrap: no-wrap;
   flex-direction: row;
+  align-items: flex-start;
   margin: 0 auto;
-  align-items: baseline;
   .array-entry {
-    width: 6px;
     background: $main-gradient;
-    border-radius: 8px 8px 0 0;
+    border-radius: 8px 8px 16px 16px;
     margin: 1px;
-    transition: height 5ms, width 500ms, background 100ms;
+    transition: height 5ms, width 50ms, background 100ms;
     .array-digit {
       font-size: 1vw;
       padding-top: 20px;
@@ -26,7 +24,7 @@
     }
   }
   .being-swapped {
-    background: $swap-accent;
+    background: $swap-gradient;
     transition: height 5ms, background 100ms;
     .array-digit {
       color: rgb(255, 255, 255);
@@ -35,7 +33,7 @@
     }
   }
   .being-compared {
-    background: rgb(0, 51, 128);
+    background: $comp-gradient;
     transition: height 5ms, background 100ms;
     .array-digit {
       color: rgb(255, 255, 255);

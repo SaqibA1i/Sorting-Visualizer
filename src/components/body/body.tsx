@@ -13,10 +13,10 @@ const Body: React.FC<Props> = () => {
       randArr[i] = {
         height: Math.floor(
           Math.random() *
-            ((window.screen.height -
+            (window.innerHeight -
               document.getElementById("header-main")!.offsetHeight -
-              document.getElementById("header-footer")!.offsetHeight) -
-              40) +
+              document.getElementById("header-footer")!.offsetHeight -
+              100) +
             40
         ),
       };

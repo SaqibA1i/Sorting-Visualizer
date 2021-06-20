@@ -123,7 +123,7 @@ const Header: React.FC<Props> = () => {
             <Slider
               min={5}
               max={100}
-              step={11}
+              step={1}
               defaultValue={bars}
               onChange={(value: number) => {
                 setBars(value);
