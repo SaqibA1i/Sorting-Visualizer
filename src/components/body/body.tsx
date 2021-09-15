@@ -1,12 +1,12 @@
 import { Sort, useAlg } from "../../Context/SortingContext";
 import { useEffect, useState } from "react";
 import { Bars } from "../../types";
-
+import { CircleFill } from "react-bootstrap-icons";
 type Props = {};
 
 const Body: React.FC<Props> = () => {
   const { algorithm, setAlgo, bars, arrayBars, setArr } = useAlg();
-
+  useEffect(() => {}, []);
   useEffect(() => {
     let randArr: Bars[] = [];
     for (let i = 0; i < bars; i++) {
@@ -29,6 +29,15 @@ const Body: React.FC<Props> = () => {
   return (
     <>
       <h1 className="body-heading">{algorithm}</h1>
+      {/* <p>
+        <div className="comp">
+          <CircleFill size={13} color="rgb(83, 86, 253)" /> Comparing
+        </div>
+        <div className="swap">
+          <CircleFill size={13} color="rgb(23, 133, 42)" /> Swapping
+        </div>
+      </p> */}
+
       <div id="box" className="array-box">
         {arrayBars.map((entry, id) => {
           return (
@@ -37,7 +46,6 @@ const Body: React.FC<Props> = () => {
                 id={"bar" + id}
                 style={{
                   height: entry.height + "px",
-                  width: "-webkit-fill-available",
                 }}
                 className="array-entry"
               >

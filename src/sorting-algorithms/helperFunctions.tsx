@@ -1,7 +1,5 @@
 import { Bars } from "../types";
-
-import { Sort, useAlg } from "../Context/SortingContext";
-import React, { useContext, useState } from "react";
+import React from "react";
 
 // Helper Functions
 // delay: Adds delay to the algorithm so that the process can be seen
@@ -17,6 +15,7 @@ export const compare = async (
   document.getElementById("bar" + index1)!.classList.add("being-compared");
   document.getElementById("bar" + index2)!.classList.add("being-compared");
   await delay(sortSpeed);
+
   // reset the color
   document.getElementById("bar" + index1)!.classList.remove("being-compared");
   document.getElementById("bar" + index2)!.classList.remove("being-compared");
@@ -36,9 +35,9 @@ export const swap = async (
   sortSpeed: number,
   setArr: React.Dispatch<React.SetStateAction<Bars[]>>
 ) => {
-//   // swap the height in the DOM
-//   document.getElementById("bar" + index1)!.style.height = n2 + "px";
-//   document.getElementById("bar" + index2)!.style.height = n1 + "px";
+  //   // swap the height in the DOM
+  //   document.getElementById("bar" + index1)!.style.height = n2 + "px";
+  //   document.getElementById("bar" + index2)!.style.height = n1 + "px";
   // mark the color as they are being swapped
   document.getElementById("bar" + index1)!.classList.add("being-swapped");
   document.getElementById("bar" + index2)!.classList.add("being-swapped");
@@ -50,6 +49,12 @@ export const swap = async (
   let d = array[index1];
   array[index1] = array[index2];
   array[index2] = d;
+  setArr([...array]);
+};
+export const set = async (
+  array: Bars[],
+  setArr: React.Dispatch<React.SetStateAction<Bars[]>>
+) => {
   setArr([...array]);
 };
 export const verify = async (array: Bars[]) => {

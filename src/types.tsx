@@ -1,8 +1,9 @@
 export type Bars = {
-    height: number;
-}
+  height: number;
+};
 
 export type option = {
-    id: number;
-    algorithm: string;
-  }
+  id: number;
+  algorithm: string;
+  disabled: Boolean;
+};

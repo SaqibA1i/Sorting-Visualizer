@@ -10,10 +10,12 @@
   align-items: flex-start;
   margin: 0 auto;
   .array-entry {
+    width: -webkit-fill-available;
+    position: relative;
     background: $main-gradient;
     border-radius: 8px 8px 16px 16px;
     margin: 1px;
-    transition: height 5ms, width 50ms, background 100ms;
+    transition: height 5ms, width 50ms, background 100ms, left 1000ms;
     .array-digit {
       font-size: 1vw;
       padding-top: 20px;
@@ -43,5 +45,14 @@
   }
   .error {
     background: rgb(128, 19, 0);
+  }
+}
+
+.comp {
+  span {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background: $main-gradient;
   }
 }
