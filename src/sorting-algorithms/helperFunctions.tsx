@@ -3,7 +3,7 @@ import React from "react";
 
 // Helper Functions
 // delay: Adds delay to the algorithm so that the process can be seen
-const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
+export const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 export const compare = async (
   index1: number,
   index2: number,
@@ -42,7 +42,7 @@ export const swap = async (
   document.getElementById("bar" + index1)!.classList.add("being-swapped");
   document.getElementById("bar" + index2)!.classList.add("being-swapped");
   // wait
-  await delay(sortSpeed + 200);
+  await delay(sortSpeed);
   // reset the color
   document.getElementById("bar" + index1)!.classList.remove("being-swapped");
   document.getElementById("bar" + index2)!.classList.remove("being-swapped");

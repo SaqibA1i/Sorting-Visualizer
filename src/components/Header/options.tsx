@@ -13,12 +13,12 @@ export const options: option[] = [
   },
   {
     id: 3,
-    algorithm: "Merge Sort (in dev)",
-    disabled: true,
+    algorithm: "Merge Sort",
+    disabled: false,
   },
   {
     id: 4,
-    algorithm: "Quick Sort (in dev)",
-    disabled: true,
+    algorithm: "Quick Sort",
+    disabled: false,
   },
 ];

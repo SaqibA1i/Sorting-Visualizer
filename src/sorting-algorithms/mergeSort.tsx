@@ -1,48 +1,99 @@
 import { Bars } from "../types";
-import { set, verify, compare, swap } from "./helperFunctions";
+import { set, verify, compare, swap, delay } from "./helperFunctions";
 
 import React, { useContext, useState } from "react";
 
-const merge = (left: Bars[], right: Bars[]): Bars[] => {
-  let arr: Bars[] = [];
-  // Break out of loop if any one of the array gets empty
-  while (left.length && right.length) {
-    // Pick the smaller among the smallest element of left and right sub arrays
-    if (left[0].height < right[0].height) {
-      let temp: Bars | undefined = left.shift();
-      temp && arr.push(temp);
+const merge = async (
+  array: Bars[],
+  sortSpeed: number,
+  setArr: React.Dispatch<React.SetStateAction<Bars[]>>,
+  start: number,
+  end: number
+): Promise<undefined> => {
+  let middle = Math.floor((end - start) / 2);
+
+  let left = start;
+  let left_end = start + middle;
+
+  let right = left_end + 1;
+  let right_end = end;
+
+  console.log(
+    "merging: (" +
+      left +
+      ", " +
+      left_end +
+      ") (" +
+      right +
+      " , " +
+      right_end +
+      ")"
+  );
+  let temp = [];
+
+  while (left <= left_end && right <= right_end) {
+    if (
+      await compare(
+        left,
+        right,
+        array[left].height,
+        array[right].height,
+        sortSpeed
+      )
+    ) {
+      temp.push(array[left]);
+      ++left;
     } else {
-      let temp: Bars | undefined = right.shift();
-      temp && arr.push(temp);
+      temp.push(array[right]);
+      ++right;
     }
   }
 
-  // Concatenating the leftover elements
-  // (in case we didn't go through the entire left or right array)
-  return [...arr, ...left, ...right];
-};
-
-const mergeSortHelper = async (
-  array: Bars[],
-  sortSpeed: number,
-  setArr: React.Dispatch<React.SetStateAction<Bars[]>>
-): Promise<Bars[]> => {
-  const half = array.length / 2;
-
-  // Base case or terminating case
-  if (array.length < 2) {
-    return array;
+  // There are remaining sorted entries in either right or left array
+  //  so copy them over
+  for (let i = right; i <= right_end; i++) {
+    temp.push(array[i]);
   }
 
-  const left: Bars[] = array.splice(0, half);
-  let ar: Bars[] = merge(
-    await mergeSortHelper(left, sortSpeed, setArr),
-    await mergeSortHelper(array, sortSpeed, setArr)
-  );
-  console.log(ar);
-  await set(ar, setArr);
+  for (let i = left; i <= left_end; i++) {
+    temp.push(array[i]);
+  }
+  console.log("temp:" + temp);
+  // assign temp to array
+  let j = 0;
+  for (let i = start; i <= end; i++) {
+    array[i] = temp[j];
+    await delay(sortSpeed);
+    setArr([...array]);
+    ++j;
+  }
+  return;
+};
 
-  return array;
+const merge_sort_helper = async (
+  array: Bars[],
+  sortSpeed: number,
+  setArr: React.Dispatch<React.SetStateAction<Bars[]>>,
+  start: number,
+  end: number
+): Promise<undefined> => {
+  if (start >= end) {
+    return;
+  }
+
+  let middle = Math.floor((end - start) / 2);
+
+  let left = start;
+  let left_end = left + middle;
+
+  let right = left_end + 1;
+  let right_end = end;
+  console.log(start + ", " + end);
+
+  await merge_sort_helper(array, sortSpeed, setArr, left, left_end);
+  await merge_sort_helper(array, sortSpeed, setArr, right, right_end);
+
+  await merge(array, sortSpeed, setArr, start, end);
 };
 
 export const mergeSort = async (
@@ -50,7 +101,7 @@ export const mergeSort = async (
   sortSpeed: number,
   setArr: React.Dispatch<React.SetStateAction<Bars[]>>
 ): Promise<boolean> => {
-  await mergeSortHelper(array, sortSpeed, setArr);
+  await merge_sort_helper(array, sortSpeed, setArr, 0, array.length - 1);
   await verify(array);
   return true;
 };
