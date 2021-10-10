@@ -3,6 +3,20 @@ $swap-accent: rgb(10, 117, 0) 70.2%;
 $main-accent-dark: rgb(206, 206, 206) 70.2%;
 $black: #333;
 
-$main-gradient: linear-gradient(112.7deg, rgba(253, 185, 83, 1) 11.4%, rgba(255, 138, 0, 1) 70.2%);
-$comp-gradient: linear-gradient(112.7deg, rgb(83, 86, 253) 11.4%, rgb(4, 0, 255) 70.2%);
-$swap-gradient: linear-gradient(112.7deg, rgb(23, 133, 42) 11.4%, rgb(0, 87, 7) 70.2%);
+$main-gradient: linear-gradient(
+  112.7deg,
+  rgba(253, 185, 83, 1) 11.4%,
+  rgba(255, 138, 0, 1) 70.2%
+);
+$comp-gradient: linear-gradient(
+  112.7deg,
+  rgb(83, 86, 253) 11.4%,
+  rgb(4, 0, 255) 70.2%
+);
+$swap-gradient: linear-gradient(
+  112.7deg,
+  rgb(23, 133, 42) 11.4%,
+  rgb(0, 87, 7) 70.2%
+);
+$hold-gradient: linear-gradient(112.7deg, #5c7aea 11.4%, #5c7aea 70.2%);
+$pivot-gradient: linear-gradient(112.7deg, #ff0075 11.4%, #ff0075 70.2%);

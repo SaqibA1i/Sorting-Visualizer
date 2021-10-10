@@ -4,7 +4,7 @@ import { mergeSort } from "./mergeSort";
 import { insertionSort } from "./insertionSort";
 import { quickSort } from "./quickSort";
 
-import React, { useContext, useState } from "react";
+import React from "react";
 
 export const algorithms = async (
   algo: string,

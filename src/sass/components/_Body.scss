@@ -43,6 +43,24 @@
       background-color: rgba(51, 51, 51, 0.568);
     }
   }
+  .pivot {
+    background: $pivot-gradient;
+    transition: height 5ms, background 100ms;
+    .array-digit {
+      color: rgb(255, 255, 255);
+      transition: color 50ms;
+      background-color: rgba(51, 51, 51, 0.568);
+    }
+  }
+  .hold {
+    background: $hold-gradient;
+    transition: height 5ms, background 100ms;
+    .array-digit {
+      color: rgb(255, 255, 255);
+      transition: color 50ms;
+      background-color: rgba(51, 51, 51, 0.568);
+    }
+  }
   .error {
     background: rgb(128, 19, 0);
   }

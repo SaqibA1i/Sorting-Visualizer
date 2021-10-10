@@ -1,7 +1,7 @@
 import { Bars } from "../types";
-import { set, verify, compare, swap, delay } from "./helperFunctions";
+import { verify, compare, delay } from "./helperFunctions";
 
-import React, { useContext, useState } from "react";
+import React from "react";
 
 const merge = async (
   array: Bars[],
@@ -17,18 +17,6 @@ const merge = async (
 
   let right = left_end + 1;
   let right_end = end;
-
-  console.log(
-    "merging: (" +
-      left +
-      ", " +
-      left_end +
-      ") (" +
-      right +
-      " , " +
-      right_end +
-      ")"
-  );
   let temp = [];
 
   while (left <= left_end && right <= right_end) {
@@ -58,7 +46,6 @@ const merge = async (
   for (let i = left; i <= left_end; i++) {
     temp.push(array[i]);
   }
-  console.log("temp:" + temp);
   // assign temp to array
   let j = 0;
   for (let i = start; i <= end; i++) {
@@ -88,7 +75,6 @@ const merge_sort_helper = async (
 
   let right = left_end + 1;
   let right_end = end;
-  console.log(start + ", " + end);
 
   await merge_sort_helper(array, sortSpeed, setArr, left, left_end);
   await merge_sort_helper(array, sortSpeed, setArr, right, right_end);

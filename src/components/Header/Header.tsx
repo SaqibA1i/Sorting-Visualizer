@@ -1,11 +1,7 @@
-import {
-  FilterSquareFill,
-  PlayCircle,
-  StopCircle,
-} from "react-bootstrap-icons";
-import { useEffect, useState } from "react";
-import { Sort, useAlg } from "../../Context/SortingContext";
-import Slider, { Range } from "rc-slider";
+import { FilterSquareFill } from "react-bootstrap-icons";
+import { useState } from "react";
+import { useAlg } from "../../Context/SortingContext";
+import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import { options } from "./options";
 import { option } from "../../types";
@@ -14,7 +10,7 @@ import { algorithms } from "../../sorting-algorithms/algorithms";
 type Props = {};
 
 const Header: React.FC<Props> = () => {
-  const [selectProps, setProps] = useState({
+  const [selectProps] = useState({
     multi: false,
     disabled: false,
     loading: false,
@@ -121,8 +117,8 @@ const Header: React.FC<Props> = () => {
           <p className={"slider"}>
             Bar numbers: {bars}
             <Slider
-              min={5}
-              max={100}
+              min={11}
+              max={99}
               step={1}
               defaultValue={bars}
               onChange={(value: number) => {
@@ -136,7 +132,7 @@ const Header: React.FC<Props> = () => {
             <Slider
               ariaLabelForHandle={"Sorting Speed"}
               min={1}
-              step={11}
+              step={1}
               max={1000}
               defaultValue={sortSpeed}
               onChange={(value: number) => {

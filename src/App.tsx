@@ -1,10 +1,9 @@
-import React, { useContext, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Body from "./components/body/body";
 import { SortingContext } from "./Context/SortingContext";
 import "./sass/styler.scss";
-import { setFlagsFromString } from "v8";
 import { Bars } from "./types";
 import { options } from "./components/Header/options";
 
