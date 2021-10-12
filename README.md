@@ -1,46 +1,27 @@
-# Getting Started with Create React App
+# [Sorting Visualizer ](https://sort-app.netlify.app/)
+Allowing students to view famous sorting algorithms in action, helping them undersand its underlying logic
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Motivation
+Algorithms become incresingly hard to comprehend the more complex they get. This website allows the user to view the progress of the following sorting algorithms:
+## Quick Sort
+A very efficient divide and conquer sorting algorithm, that uses pivots in order to restructure the array by having the smallest elements to the left and largest on the right. Thus by depending where the pivot is chosen determines its overall run time.
+> Average run Time: O(nlogn)
+> Worst run time: O(n^2)
+> A benefit of quicksort other than its performance is that it sorts in place with out requiring extra memory unlike Merge Sort which is comparitively hard to implement in place.
 
-## Available Scripts
+## Merge Sort
+Another algorithm based on divide the array, sorting them and merging them. 
+> Average run time: O(nlogn)
+> Worst run time: O(nlogn)
+> Memory used: O(n)
+> In this implementation extra memory is used to store the auxillary array, which stores the final sorted array of the arrays to be merged.
 
-In the project directory, you can run:
+## Bubble Sort
+An in-effcient but easy to implement sorting algorithm which swaps adjacent entries until they are in the right position. This can be seen in the website as the larger array elements 'bubbling' to the right of the array, hence the name ...
+> Average run time: O(n^2)
 
-### `npm start`
+## Insertion Sort:
+A simple yet inefficient algorithm which inserts each element of the array to its right position one element at a time
+> Average run time: O(n^2)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
