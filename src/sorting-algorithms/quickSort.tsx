@@ -59,6 +59,8 @@ const partition = async (
     document.getElementById("bar" + right)!.classList.add("hold");
 
     if (left <= right) {
+      document.getElementById("bar" + left)!.classList.remove("hold");
+      document.getElementById("bar" + right)!.classList.remove("hold");
       await swap(
         array,
         left,
@@ -68,8 +70,6 @@ const partition = async (
         sortSpeed,
         setArr
       );
-      document.getElementById("bar" + left)!.classList.remove("hold");
-      document.getElementById("bar" + right)!.classList.remove("hold");
       left++;
       right--;
     } else {
